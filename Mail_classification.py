@@ -5,7 +5,7 @@ from sklearn.svm import SVC
 class MailClassification():
 
 	def __init__(self, mail = None):
-		self._model = sio.load("model2/SVM_clf_mail.skops", trusted=True)
+		self._model = sio.load("model/SVM_clf_default.skops", trusted=True)
 		self._dictionary = None
 		self._mail = mail
 		self._vector = None
@@ -30,7 +30,7 @@ class MailClassification():
 			if word in self._dictionary:
 				self._vector[0][self._dictionary.index(word)] += 1
 
-	def set_dictionary(self, path = "model2/dictionary.txt"):
+	def set_dictionary(self, path = "model/dictionary.txt"):
 		with open(path, "r", encoding="utf-8") as f:
 			dictionary = f.read()
 		self._dictionary = dictionary.split(" ")[:-1]
