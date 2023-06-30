@@ -3,6 +3,8 @@ import tkinter as tk
 from tkinter import filedialog
 from Mail_classification import MailClassification
 
+from time import sleep
+
 engine = MailClassification()
 
 def readFile(filedir):
@@ -33,8 +35,10 @@ def openFile():
 
 
 def classificationMail():
+	displayOnTextLabel("Calculating")
 	engine.set_mail(textInput.get(1.0,END))
 	result = engine.clasification_email()
+	# sleep(3)
 	displayOnTextLabel(result)
 
 root = Tk()
