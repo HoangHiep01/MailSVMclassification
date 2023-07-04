@@ -38,7 +38,7 @@ def classificationMail():
 	displayOnTextLabel("Calculating")
 	engine.set_mail(textInput.get(1.0,END))
 	result = engine.clasification_email()
-	# sleep(3)
+	sleep(2)
 	displayOnTextLabel(result)
 
 root = Tk()

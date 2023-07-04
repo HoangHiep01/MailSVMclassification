@@ -5,7 +5,7 @@ from sklearn.svm import SVC
 class MailClassification():
 
 	def __init__(self, mail = None):
-		self._model = sio.load("model/SVM_clf_default.skops", trusted=True)
+		self._model = sio.load("model/linear_all_data.skops", trusted=True)
 		self._dictionary = None
 		self._mail = mail
 		self._vector = None
@@ -39,7 +39,7 @@ class MailClassification():
 		if self._dictionary is None:
 			self.set_dictionary()
 		if type(mail) is str:
-			self._mail = self._filter_for_string_mail(mail).split(" ")
+			self._mail = self._filter_for_string_mail(mail).split(" ")[:-1]
 		elif type(mail) is list:
 			self._mail = mail
 		else:
